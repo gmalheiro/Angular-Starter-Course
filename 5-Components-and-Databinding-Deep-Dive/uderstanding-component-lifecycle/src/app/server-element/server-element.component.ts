@@ -1,6 +1,7 @@
 import {
   AfterContentChecked,
   AfterContentInit,
+  AfterViewInit,
   Component,
   DoCheck,
   Input,
@@ -18,8 +19,14 @@ import {
   // The default is: encapsulation:ViewEncapsulation.Emulated
   //If  you apply encapsulation:ViewEncapsulation.None, the
 })
-export class ServerElementComponent
-  implements OnInit, OnChanges, DoCheck, AfterContentInit,AfterContentChecked
+export class ServerElementComponent implements 
+  OnInit, 
+  OnChanges, 
+  DoCheck,
+   AfterContentInit,
+   AfterContentChecked,
+   AfterViewInit,
+   AfterContentInit
 {
   @Input('srvElement') element: { type: string; name: string; content: string };
   @Input() name: string;
@@ -48,5 +55,13 @@ export class ServerElementComponent
 
   ngAfterContentChecked(): void {
     console.log('ngAfterContentChecked called!');
+  }
+
+  ngAfterViewInit() {
+    console.log('ngAfterViewInit called!');
+  }
+
+  ngAfterViewChecked(): void {
+    console.log('ngAfterViewChecked called!');
   }
 }
