@@ -30,4 +30,8 @@ export class AppComponent {
     //console.log(`this is my name: ${this.serverElementName}`);
   }
 
+  onDestroyFirst(){
+    this.serverElements.splice(0,1);
+  }
+
 }
