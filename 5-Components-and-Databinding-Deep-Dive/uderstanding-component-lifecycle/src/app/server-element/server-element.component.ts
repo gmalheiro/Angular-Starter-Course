@@ -1,4 +1,5 @@
 import {
+  AfterContentInit,
   Component,
   DoCheck,
   Input,
@@ -16,7 +17,7 @@ import {
   // The default is: encapsulation:ViewEncapsulation.Emulated
   //If  you apply encapsulation:ViewEncapsulation.None, the
 })
-export class ServerElementComponent implements OnInit, OnChanges,DoCheck {
+export class ServerElementComponent implements OnInit, OnChanges,DoCheck,AfterContentInit {
   @Input('srvElement') element: { type: string; name: string; content: string };
   @Input() name: string;
 
@@ -36,6 +37,10 @@ export class ServerElementComponent implements OnInit, OnChanges,DoCheck {
   //ngDoCheck gets called anytime angular checks for any changes  
   ngDoCheck(): void {
     console.log('ngDoCheck called');
+  }
+
+  ngAfterContentInit(){
+    console.log('ngAfterContentInit called!');
   }
 
 }
