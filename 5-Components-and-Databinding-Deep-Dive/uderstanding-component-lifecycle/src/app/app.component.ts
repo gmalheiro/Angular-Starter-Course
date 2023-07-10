@@ -7,6 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   serverElements = [{type:'server',name:'TestServer',content:'Just a test!'}];
+  serverElementName:string;
 
   onServerAdded(serverData: {serverName:string, serverContent: string}) {
     this.serverElements.push({
@@ -23,4 +24,10 @@ export class AppComponent {
     });
   }
   
+  onChangeFirst(){
+    this.serverElements[0].name = 'Changed!';
+    //this.serverElementName = this.serverElements[0].name;
+    //console.log(`this is my name: ${this.serverElementName}`);
+  }
+
 }
