@@ -1,0 +1,55 @@
+<label>Server Name</label>
+<br />
+<!-- <input 
+    type="text" 
+    class="btn text-start btn-light mt-3 mb-3"
+    (input)="onUpdateServerName($event)" 
+/> 
+<br/> -->
+<input 
+  type="text" 
+  class="btn border text-start btn-light mt-3 mb-3"
+  [(ngModel)]="serverName"
+  />
+<p>{{serverName}}</p>
+<br/>
+<button
+  class="btn btn-outline-success mb-2"
+  [disabled]="!allowNewServer"
+  (click)="onCreateServer()"
+>Add server</button>
+<!-- <p>{{allowNewServer}}</p> -->
+<!-- <p [innerText]="allowNewServer" ></p> -->
+<!-- Utilizar o property binding quando quiser trocar o valor de alguma proapriedade ou com alguma condição
+Utilizar o string interpolation quando simplesmente quiser mostrar o dado na tela -->
+<!-- <p>{{serverCreationStatus}}</p> -->
+<!-- 
+      *ngIf is added by adding a star
+      The star is actually required because ngIf is a structural directive
+      Which means it changes the structure of our dom 
+     "it either adds this elment or it doesnt add it"
+-->
+<p *ngIf="serverCreated">Server was created, server name is: {{serverName}}</p>
+<!-- We are now using *ngFor which it is a structural directive, meaning that it can add or remove elements to our DOM
+     for being a structural directive it has * 
+     for using *ngFor you have to do the following:
+     *ngFor = let server (create a temporary variable that will act like a foreach) of servers(here you can put an array or list call the way you like it) 
+    the server will loop through servers -->
+<app-server *ngFor="let server of servers"></app-server>
+<app-server></app-server>
+
+<!-- For using an else statement in *ngIf="serverCreated" we actually have to do the following:
+  Create a ng-template with a local reference
+
+  We'll dive deeper in local reference but think of it as a marker
+
+  <ng-template #noServer>
+    <p>No server was created!</p>
+  </ng-template>
+
+  after we created a ng-template with a local reference we need to add the else statement to the *ngIf
+  <p *ngIf="serverCreated; else noServer">Server was created, server name is: {{serverName}}</p>
+   by adding the else statement we are telling angular that if the condition is false then we want to render the ng-template
+   with the local reference noServer
+   the localReference is #noServer as we put in the ng-template
+-->

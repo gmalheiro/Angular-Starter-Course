@@ -1,0 +1,20 @@
+<p 
+    [ngStyle]="{backgroundColor: getColor()}" 
+    [ngClass]="{online: serverStatus === 'online'}"> 
+    {{'Server'}} with ID {{serverId}} is {{getServerStatus()}} 
+</p>
+      
+<!-- when you type [] = {} you're binding a directive with a property  -->
+
+<!-- Just like ngStyle that allow us to add o remove css styles
+      ngClass allows us to add or remove css classes  
+    
+        When using ngClass works like that: 
+        [ngClass]="{online: serverStatus == 'online'}"
+        online is the name of the class and serverStatus is the property that we're binding to it
+        so if serverStatus == 'online' then the class online will be added to the element
+        it works with a pair key,value the key is the name of the class and the value is the property that we're binding to it
+        if the value is true then the class will be added to the element
+    -->
+
+<!-- <input class="btn btn-light" type="text" [(ngModel)]="serverStatus"> -->

@@ -1,0 +1,20 @@
+<button class="btn btn-primary border" (click)="onToggleDetails()" >
+    Display details
+</button>
+
+<!-- Usar o *ngIF  para o botão clicado-->
+
+<p *ngIf="showSecret" >Secret password = tuna</p>
+
+<div class="">
+    <p   
+    *ngFor="let logItem of log;  let i = index" 
+    [ngStyle]="{backgroundColor: i >= 5 ? 'blue' : 'transparent'}"
+    [ngClass]="{'textColor' : i >=5}">
+        {{ logItem }}
+    </p>
+</div>
+
+<!-- <p *ngFor="let clicks of buttonClicked" ></p> -->
+
+<!-- usar o *ngFor em uma lista para o click do display details -->

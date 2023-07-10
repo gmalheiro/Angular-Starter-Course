@@ -1,0 +1,37 @@
+<label>Server Name</label>
+<br />
+
+<!-- <input 
+    type="text" 
+    class="btn text-start btn-light mt-3 mb-3"
+    (input)="onUpdateServerName($event)" 
+/> 
+<br/> -->
+<input 
+  type="text" 
+  class="btn border text-start btn-light mt-3 mb-3"
+  [(ngModel)]="serverName"
+  />
+
+<p>{{serverName}}</p>
+
+<br/>
+
+<button
+  class="btn btn-outline-success mb-2"
+  [disabled]="!allowNewServer"
+  (click)="onCreateServer()"
+>
+  Add server
+</button>
+
+<!-- <p>{{allowNewServer}}</p> -->
+<!-- <p [innerText]="allowNewServer" ></p> -->
+<!-- Utilizar o property binding quando quiser trocar o valor de alguma proapriedade ou com alguma condição
+Utilizar o string interpolation quando simplesmente quiser mostrar o dado na tela -->
+
+<p class="">{{ serverCreationStatus }}</p>
+
+<app-server></app-server>
+
+<app-server></app-server>

@@ -1,0 +1,17 @@
+<label><b>Name</b></label>
+<br/>
+<input 
+  type="text" 
+  class="btn border text-start btn-light mt-3 mb-3"
+  [(ngModel)]="personName"
+/>
+
+<button
+  class="btn btn-outline-success mx-2 mt-3 mb-3"
+  (click)="onPersonAdded()"
+  [disabled]="!allowNewPerson"
+>
+  Create
+</button>
+
+<p>{{personAddedStatus}}</p>
