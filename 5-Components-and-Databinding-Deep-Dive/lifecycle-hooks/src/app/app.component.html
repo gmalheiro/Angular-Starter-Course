@@ -1,0 +1,23 @@
+<div class="container">
+  <app-cockpit
+   (serverCreated)="onServerAdded($event)"
+   (bpCreated)="onBlueprintAdded($event)" 
+   ></app-cockpit>
+  <hr>
+  <div class="row">
+    <div class="col-xs-12">
+      <button class="btn btn-primary" style="margin-bottom: 15px; margin-right: 15px ;" (click)="onChangeFirst()"  >Change first element</button>
+      <button class="btn btn-danger" style="margin-bottom: 15px;" (click)="onDestroyFirst()"  >Destroy first component</button>
+      <app-server-element 
+      *ngFor="let serverElement of serverElements"
+      [srvElement]="serverElement"
+      [name] = "serverElement.name ">
+      <p>
+        <strong *ngIf="serverElement.type === 'server'" style="color: red">{{ serverElement.content }}</strong>
+        <em *ngIf="serverElement.type === 'blueprint'">{{ serverElement.content }}</em>
+        <!-- Everything you place between the opening and ending of your own component is lost by default -->
+      </p>
+    </app-server-element>
+    </div>
+  </div>
+</div>
