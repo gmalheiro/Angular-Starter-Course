@@ -3,6 +3,7 @@ import {
   AfterContentInit,
   AfterViewInit,
   Component,
+  ContentChild,
   DoCheck,
   ElementRef,
   Input,
@@ -35,7 +36,7 @@ export class ServerElementComponent implements
   @Input('srvElement') element: { type: string; name: string; content: string };
   @Input() name: string;
   @ViewChild('heading', {static: true}) header: ElementRef;
-
+  @ContentChild('contentParagraph', {static: true}) paragraph: ElementRef;
   constructor() {
     console.log('constructor called');
   }
@@ -49,14 +50,16 @@ export class ServerElementComponent implements
   ngOnInit(): void {
     console.log('ngOnInit called');
     console.log('Text content: '+this.header.nativeElement.textContent);
+    console.log('Text content of paragraph: '+ this.paragraph.nativeElement.textContent );
   }
   //ngDoCheck gets called anytime angular checks for any changes
   ngDoCheck(): void {
     console.log('ngDoCheck called');
   }
-
+  //ContentChild will only be available after ngAfterContentInit
   ngAfterContentInit() {
     console.log('ngAfterContentInit called!');
+    console.log('Text content of paragraph: '+ this.paragraph.nativeElement.textContent );
   }
 
   ngAfterContentChecked(): void {
