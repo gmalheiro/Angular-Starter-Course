@@ -13,6 +13,18 @@
           *ngFor="let evenNumber of evenNumbers">
           {{ evenNumber }}
         </li>
+        <!-- Behind the scenes there is not * in ngIf its a property so its used with a ngTemplate andlike this:[ngIf]="condition" -->
+        <ng-template ngIf = "!onlyOdd">
+          <div class="">
+            <li
+            class="list-group-item"
+            [ngClass]="{odd: evenNumber % 2 !== 0}"
+            [ngStyle]="{backgroundColor: evenNumber % 2 !== 0 ? 'yellow' : 'transparent'}"
+            *ngFor="let evenNumber of evenNumbers">
+            {{ evenNumber }}
+                    </li>
+          </div>
+        </ng-template>
       </ul>
       <ul *ngIf="onlyOdd" class="list-group">
         <li
